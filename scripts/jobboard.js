@@ -1,7 +1,3 @@
-var rssDefault = `https://kent.joinhandshake.com/external_feeds/14596/public.rss?token=bOuon-PBh-xrLAQ_e-lIgL4NE76vzSIsMDver5Y0CnihwzjSTcWv8Q`;
-
-window.onload = getJobs(rssDefault);
-
 function getJobs(rss) {
   $(".major").on("click", function () {
     $(".major").removeClass("active-major");
@@ -9,7 +5,7 @@ function getJobs(rss) {
   });
 
   $.ajax({
-    url: "https://jsonapi.ethanh.works/api?",
+    url: "https://job-board-api-mabeam.vercel.app/api?",
     method: "GET",
     dataType: "json",
     data: {
@@ -102,6 +98,7 @@ function getJobs(rss) {
 }
 
 function showFullTime() {
+  document.getElementsByClassName("display-jobs")[0].innerHTML = "";
   if (document.getElementById("full-time").classList.contains("hide")) {
     document.getElementById("full-time").classList.remove("hide");
     document.getElementById("full-time").classList.add("show");
@@ -115,6 +112,7 @@ function showFullTime() {
   document.getElementById("pti-button").classList.remove("active");
 }
 function showFullTimeInternship() {
+  document.getElementsByClassName("display-jobs")[0].innerHTML = "";
   if (
     document.getElementById("full-time-internship").classList.contains("hide")
   ) {
@@ -131,6 +129,7 @@ function showFullTimeInternship() {
 }
 
 function showPartTime() {
+  document.getElementsByClassName("display-jobs")[0].innerHTML = "";
   if (document.getElementById("part-time").classList.contains("hide")) {
     document.getElementById("part-time").classList.remove("hide");
     document.getElementById("part-time").classList.add("show");
